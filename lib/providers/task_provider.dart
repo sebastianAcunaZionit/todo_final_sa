@@ -3,6 +3,7 @@ import 'package:isar/isar.dart';
 import 'package:todo_practica_final/db/interfaces/task_repo.dart';
 import 'package:todo_practica_final/db/repository/task_repo_impl.dart';
 import 'package:todo_practica_final/model/task_model.dart';
+
 class TaskProvider extends ChangeNotifier {
   final TaskRepo _taskRepo = TaskRepoImpl();
   List<Task> _tasks = [];
@@ -11,7 +12,7 @@ class TaskProvider extends ChangeNotifier {
 
   Future<void> fetchTasks() async {
     _tasks = await _taskRepo.obtenerTarjetas();
-
+    notifyListeners();
   }
 
   Future<void> addTask(Task task) async {

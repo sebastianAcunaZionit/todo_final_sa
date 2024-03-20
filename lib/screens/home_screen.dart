@@ -4,9 +4,9 @@ import 'package:todo_practica_final/providers/appbar_provider.dart';
 import 'package:todo_practica_final/widgets/drawer/drawer.dart';
 import '../config/constants.dart';
 
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final Widget children;
+  const HomeScreen({super.key, required this.children});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       drawer: const MyDrawer(),
-      body: const Center(
-
-
+      body: Center(
+        child: children,
       ),
     );
   }
 }
-
